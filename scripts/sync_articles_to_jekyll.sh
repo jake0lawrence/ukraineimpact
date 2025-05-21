@@ -10,8 +10,15 @@ mkdir -p "$TARGET_DIR"
 
 for f in "$SOURCE_DIR"/*.md; do
     [ -e "$f" ] || continue
-    filename="$(basename "$f")"
-    dest="$TARGET_DIR/$filename"
+    filename="$(basename "$f" .md)"
+    # extract date from front matter and format as YYYY-MM-DD
+    date_line=$(awk -F': ' '/^date:/ {print $2; exit}' "$f")
+    if [ -n "$date_line" ]; then
+        date_prefix=$(echo "$date_line" | cut -c1-10)
+    else
+        date_prefix=$(date +%Y-%m-%d)
+    fi
+    dest="$TARGET_DIR/${date_prefix}-${filename}.md"
     if [ "${1-}" = "--link" ]; then
         ln -sf "../../$f" "$dest"
     else
