@@ -63,7 +63,9 @@ You can customize the email template by creating `templates/newsletter.html`. If
 3. **Build the Jekyll site**
 
    First copy the fetched articles into the Jekyll site's `_posts/` folder. Use
-   the helper script or create symlinks:
+   the helper script or create symlinks. The script automatically prefixes each
+   article filename with the date from its front matter so that Jekyll can
+   process it as a dated post:
 
    ```bash
    # copy files
