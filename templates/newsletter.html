@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Newsletter</title>
+</head>
+<body>
+    <h1>Weekly Newsletter - {{ date }}</h1>
+    {% for article in articles %}
+    <hr>
+    <div>
+        {{ article.content | safe }}
+    </div>
+    {% endfor %}
+</body>
+</html>
