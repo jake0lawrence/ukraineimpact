@@ -67,6 +67,17 @@ The repository currently focuses on fetching articles and sending newsletters. F
 - A Jekyll website to publish the collected articles.
 - A GitHub Actions workflow to automate fetching and mailing.
 
+## Automation
+
+A scheduled GitHub Actions workflow automatically fetches articles and sends the newsletter. Configure these repository secrets so the workflow can run:
+- `RSS_FEED_URLS`
+- `MAILCHIMP_API_KEY`
+- `MAILCHIMP_SERVER_PREFIX`
+- `MAILCHIMP_LIST_ID`
+- `EMAIL_FROM`
+- `EMAIL_FROM_NAME`
+
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
