@@ -60,6 +60,26 @@ You can customize the email template by creating `templates/newsletter.html`. If
 
    The latest articles are loaded and emailed using Mailchimp.
 
+3. **Build the Jekyll site**
+
+   First copy the fetched articles into the Jekyll site's `_posts/` folder. Use
+   the helper script or create symlinks:
+
+   ```bash
+   # copy files
+   ./scripts/sync_articles_to_jekyll.sh
+   # or create symlinks instead of copies
+   ./scripts/sync_articles_to_jekyll.sh --link
+   ```
+
+   Then build the static site:
+
+   ```bash
+   jekyll build -s jekyll -d jekyll/_site
+   ```
+
+   The generated site will be available under `jekyll/_site/`.
+
 ## Roadmap
 
 The repository currently focuses on fetching articles and sending newsletters. Future improvements may include:
